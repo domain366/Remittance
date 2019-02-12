@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+        <report 
+            id="remittance_advices"
+            model="account.payment"
+            string="Remittance Advice"
+            report_type="qweb-pdf"
+            name="remittance_advice_report.report_remittance_advice"
+            file="remittance_advice_report.report_remittance_advice"
+            attachment="(object.state == 'posted') and ('REMITTANCE'+(object.name and  '_'+object.name or '').replace('/','')+'.pdf')"
+        />
+    </data>
+</odoo>

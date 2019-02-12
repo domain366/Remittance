@@ -1,0 +1,22 @@
+<odoo>
+    <data>
+
+<record id="sendbyemail_remittance_inherit1" model="ir.ui.view">
+    <field name="model">account.payment</field>
+    <field name="inherit_id" ref="account.view_account_payment_form"/>
+    <field name="arch" type="xml">
+    <data>
+        <xpath expr="//button[@name= 'post']" position="before">
+            <button name="SendByEmail" type="object" string="Send By Email" class="oe_highlight"/>
+        </xpath>
+        <xpath expr="//sheet" position="after">
+            <div class="oe_chatter">
+                <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                <field name="message_ids" widget="mail_thread"/>
+            </div>
+        </xpath>
+    </data>
+    </field>
+</record>
+    </data>
+</odoo>

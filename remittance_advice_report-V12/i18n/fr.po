@@ -1,0 +1,250 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* remittance_advice_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-11-21 13:25+0000\n"
+"PO-Revision-Date: 2018-11-21 13:25+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: remittance_advice_report
+#: model:mail.template,body_html:remittance_advice_report.email_template_send_remittance
+msgid "\n"
+"\n"
+"                <head></head>\n"
+"                <body style=\"margin: 0; padding: 0;\">\n"
+"                <table border=\"0\" width=\"100%\" cellpadding=\"0\" bgcolor=\"#ededed\" style=\"padding: 20px; background-color: #ededed\" summary=\"o_mail_notification\">\n"
+"                    <tbody>\n"
+"\n"
+"                      <!-- HEADER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: rgb(25, 168, 208); padding: 20px;\">\n"
+"                            <tr>\n"
+"                              <td valign=\"middle\">\n"
+"                                  <span style=\"font-size:20px; color:white; font-weight: bold;\">\n"
+"                                      REMITTANCE ADVICE ${object.name}\n"
+"                                  </span>\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"right\">\n"
+"                                  <img src=\"/logo.png\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\" alt=\"${user.company_id.name}\">\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"\n"
+"                      <!-- CONTENT -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\" bgcolor=\"#ffffff\" style=\"min-width: 590px; background-color: rgb(255, 255, 255); padding: 20px;\">\n"
+"                            <tbody>\n"
+"                              <td valign=\"top\" style=\"font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
+"                                Dear ${object.partner_id.name | safe},\n"
+"                                <p>\n"
+"                                    Please find attached, your remittance advice <b>${object.name}<b>.\n"
+"                                </p>\n"
+"                              </td>\n"
+"                            </tbody>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"\n"
+"                      <!-- FOOTER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: rgb(25, 168, 208); padding: 20px;\">\n"
+"                            <tr>\n"
+"                              <td valign=\"middle\" align=\"left\" style=\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                ${user.company_id.name}<br/>\n"
+"                                ${user.company_id.phone or ''}\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"right\" style=\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                % if user.company_id.email:\n"
+"                                <a href=\"mailto:${user.company_id.email}\" style=\"text-decoration:none; color: white;\">${user.company_id.email}</a><br/>\n"
+"                                % endif\n"
+"                                % if user.company_id.website:\n"
+"                                    <a href=\"${user.company_id.website}\" style=\"text-decoration:none; color: white;\">\n"
+"                                        ${user.company_id.website}\n"
+"                                    </a>\n"
+"                                % endif\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                      <tr>\n"
+"                        <td align=\"center\">\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"                </body>\n"
+"                </html>\n"
+"            "
+msgstr ""
+
+#. module: remittance_advice_report
+#: model:mail.template,report_name:remittance_advice_report.email_template_send_remittance
+msgid "${(object.state == 'posted') and ('REMITTANCE'+(object.name and  '_'+object.name or '').replace('/','')+'.pdf')}"
+msgstr ""
+
+#. module: remittance_advice_report
+#: model:mail.template,subject:remittance_advice_report.email_template_send_remittance
+msgid "${object.company_id.name|safe}: REMITTANCE ADVICE -  ${object.name or '' }"
+msgstr ""
+
+#. module: remittance_advice_report
+#: model_terms:ir.ui.view,arch_db:remittance_advice_report.report_remittance_advice_document
+msgid "&amp;bull;"
+msgstr ""
+
+#. module: remittance_advice_report
+#: model_terms:ir.ui.view,arch_db:remittance_advice_report.report_remittance_advice_document
+msgid "<strong>Memo:</strong>"
+msgstr ""
+
+#. module: remittance_advice_report
+#: model_terms:ir.ui.view,arch_db:remittance_advice_report.report_remittance_advice_document
+msgid "<strong>Payment Date:</strong>"
+msgstr ""
+
+#. module: remittance_advice_report
+#: model_terms:ir.ui.view,arch_db:remittance_advice_report.report_remittance_advice_document
+msgid "<strong>Payment Method:</strong>"
+msgstr ""
+
+#. module: remittance_advice_report
+#: model_terms:ir.ui.view,arch_db:remittance_advice_report.report_remittance_advice_document
+msgid "<strong>Payment Ref:</strong>"
+msgstr ""
+
+#. module: remittance_advice_report
+#: model_terms:ir.ui.view,arch_db:remittance_advice_report.report_remittance_advice_document
+msgid "<strong>Ref:</strong>"
+msgstr ""
+
+#. module: remittance_advice_report
+#: model_terms:ir.ui.view,arch_db:remittance_advice_report.report_remittance_advice_document
+msgid "<strong>Total Paid:</strong>"
+msgstr ""
+
+#. module: remittance_advice_report
+#: model_terms:ir.ui.view,arch_db:remittance_advice_report.report_remittance_advice_document
+msgid "<strong>Transaction ID:</strong>"
+msgstr ""
+
+#. module: remittance_advice_report
+#: model_terms:ir.ui.view,arch_db:remittance_advice_report.report_remittance_advice_document
+msgid "Bill"
+msgstr ""
+
+#. module: remittance_advice_report
+#: model_terms:ir.ui.view,arch_db:remittance_advice_report.report_remittance_advice_document
+msgid "Bill Amount"
+msgstr ""
+
+#. module: remittance_advice_report
+#: model_terms:ir.ui.view,arch_db:remittance_advice_report.report_remittance_advice_document
+msgid "Bill Date"
+msgstr ""
+
+#. module: remittance_advice_report
+#: code:addons/remittance_advice_report/models/remittance.py:59
+#, python-format
+msgid "Compose Email"
+msgstr ""
+
+#. module: remittance_advice_report
+#: model_terms:ir.ui.view,arch_db:remittance_advice_report.report_remittance_advice_document
+msgid "Customer:"
+msgstr ""
+
+#. module: remittance_advice_report
+#: model_terms:ir.ui.view,arch_db:remittance_advice_report.report_remittance_advice_document
+msgid "DRAFT"
+msgstr ""
+
+#. module: remittance_advice_report
+#: model_terms:ir.ui.view,arch_db:remittance_advice_report.report_remittance_advice_document
+msgid "Invoice"
+msgstr ""
+
+#. module: remittance_advice_report
+#: model_terms:ir.ui.view,arch_db:remittance_advice_report.report_remittance_advice_document
+msgid "Invoice Amount"
+msgstr ""
+
+#. module: remittance_advice_report
+#: model_terms:ir.ui.view,arch_db:remittance_advice_report.report_remittance_advice_document
+msgid "Invoice Date"
+msgstr ""
+
+#. module: remittance_advice_report
+#: model_terms:ir.ui.view,arch_db:remittance_advice_report.report_remittance_advice_document
+msgid "Page: <span class=\"page\"/> / <span class=\"topage\"/>"
+msgstr ""
+
+#. module: remittance_advice_report
+#: model_terms:ir.ui.view,arch_db:remittance_advice_report.report_remittance_advice_document
+msgid "Payment History"
+msgstr ""
+
+#. module: remittance_advice_report
+#: model:ir.model,name:remittance_advice_report.model_account_payment
+msgid "Payments"
+msgstr ""
+
+#. module: remittance_advice_report
+#: model_terms:ir.ui.view,arch_db:remittance_advice_report.report_remittance_advice_document
+msgid "RECEIPT OF PAYMENT"
+msgstr ""
+
+#. module: remittance_advice_report
+#: model_terms:ir.ui.view,arch_db:remittance_advice_report.report_remittance_advice_document
+msgid "REMITTANCE ADVICE"
+msgstr ""
+
+#. module: remittance_advice_report
+#: model:ir.actions.report,name:remittance_advice_report.remittance_advices
+msgid "Remittance Advice"
+msgstr ""
+
+#. module: remittance_advice_report
+#: model_terms:ir.ui.view,arch_db:remittance_advice_report.sendbyemail_remittance_inherit1
+msgid "Send By Email"
+msgstr ""
+
+#. module: remittance_advice_report
+#: model_terms:ir.ui.view,arch_db:remittance_advice_report.report_remittance_advice_document
+msgid "Source Doc"
+msgstr ""
+
+#. module: remittance_advice_report
+#: model_terms:ir.ui.view,arch_db:remittance_advice_report.report_remittance_advice_document
+msgid "Supplier:"
+msgstr ""
+
+#. module: remittance_advice_report
+#: model_terms:ir.ui.view,arch_db:remittance_advice_report.report_remittance_advice_document
+msgid "TIN:"
+msgstr ""
+
+#. module: remittance_advice_report
+#: model_terms:ir.ui.view,arch_db:remittance_advice_report.report_remittance_advice_document
+msgid "VAT:"
+msgstr ""
+
+#. module: remittance_advice_report
+#: model_terms:ir.ui.view,arch_db:remittance_advice_report.report_remittance_advice_document
+msgid "Vendor Ref"
+msgstr ""
+

@@ -1,0 +1,94 @@
+<?xml version="1.0" ?>
+<openerp>
+
+    <!-- Mail template is done in a NOUPDATE block
+         so users can freely customize/delete them -->
+    <data noupdate="0">
+
+        <!--Email template -->
+        <record id="email_template_send_remittance" model="mail.template">
+            <field name="name">Remittance Advice - Send by Email</field>
+            <field name="email_from">${(object.write_uid.email or '')|safe}</field>
+            <field name="subject">${object.company_id.name|safe}: REMITTANCE ADVICE -  ${object.name or '' }</field>
+            <field name="email_to">${object.partner_id.email}</field>
+            <field name="model_id" ref="account.model_account_payment"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="report_template" ref="remittance_advice_report.remittance_advices"/>
+            <field name="report_name">${(object.state == 'posted') and ('REMITTANCE'+(object.name and  '_'+object.name or '').replace('/','')+'.pdf')}</field>
+            <field name="lang">${object.partner_id.lang}</field>
+            <field name="body_html"><![CDATA[
+
+                <head></head>
+                <body style="margin: 0; padding: 0;">
+                <table border="0" width="100%" cellpadding="0" bgcolor="#ededed" style="padding: 20px; background-color: #ededed" summary="o_mail_notification">
+                    <tbody>
+
+                      <!-- HEADER -->
+                      <tr>
+                        <td align="center" style="min-width: 590px;">
+                          <table width="590" border="0" cellpadding="0" bgcolor="#875A7B" style="min-width: 590px; background-color: rgb(25, 168, 208); padding: 20px;">
+                            <tr>
+                              <td valign="middle">
+                                  <span style="font-size:20px; color:white; font-weight: bold;">
+                                      REMITTANCE ADVICE ${object.name}
+                                  </span>
+                              </td>
+                              <td valign="middle" align="right">
+                                  <img src="/logo.png" style="padding: 0px; margin: 0px; height: auto; width: 80px;" alt="${user.company_id.name}">
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+
+                      <!-- CONTENT -->
+                      <tr>
+                        <td align="center" style="min-width: 590px;">
+                          <table width="590" border="0" cellpadding="0" bgcolor="#ffffff" style="min-width: 590px; background-color: rgb(255, 255, 255); padding: 20px;">
+                            <tbody>
+                              <td valign="top" style="font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;">
+                                Dear ${object.partner_id.name | safe},
+                                <p>
+                                    Please find attached, your remittance advice <b>${object.name}<b>.
+                                </p>
+                              </td>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+
+                      <!-- FOOTER -->
+                      <tr>
+                        <td align="center" style="min-width: 590px;">
+                          <table width="590" border="0" cellpadding="0" bgcolor="#875A7B" style="min-width: 590px; background-color: rgb(25, 168, 208); padding: 20px;">
+                            <tr>
+                              <td valign="middle" align="left" style="color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;">
+                                ${user.company_id.name}<br/>
+                                ${user.company_id.phone or ''}
+                              </td>
+                              <td valign="middle" align="right" style="color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;">
+                                % if user.company_id.email:
+                                <a href="mailto:${user.company_id.email}" style="text-decoration:none; color: white;">${user.company_id.email}</a><br/>
+                                % endif
+                                % if user.company_id.website:
+                                    <a href="${user.company_id.website}" style="text-decoration:none; color: white;">
+                                        ${user.company_id.website}
+                                    </a>
+                                % endif
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="center">
+                        </td>
+                      </tr>
+                    </tbody>
+                </table>
+                </body>
+                </html>
+            ]]></field>
+        </record>
+    </data>
+</openerp>
